@@ -1,0 +1,19 @@
+---
+layout: default
+title: "{{ tag | capitalize }}"
+---
+
+
+
+<div class="posts">
+  {% for post in site.posts %}
+  {% if post.tags contains tag %}
+  <div class="post">
+    <h2 class="post-title"><a href="{{ post.url }}">{{ post.title }}</a></h2>
+    <span class="post-date">{{ post.date | date_to_string }}</span>
+    <h1>{{ tag | capitalize }}</h1>
+    <div class="post-content">{{ post.excerpt }}</div>
+  </div>
+  {% endif %}
+  {% endfor %}
+</div>

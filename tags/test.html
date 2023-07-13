@@ -1,0 +1,28 @@
+---
+layout: default
+title: "test"
+---
+
+<span class="test">test</span>
+<br><br>
+<div class="posts">
+  {% for post in site.posts %}
+  {% if post.tags contains "test" %}
+  <div class="post">
+    <h2 class="post-title"><a href="{{ post.url }}">{{ post.title }}</a></h2>
+    <span class="post-date">{{ post.date | date_to_string }}</span>
+    <div class="post-content">{{ post.content | strip_html | truncatewords: 30 }}</div>
+  </div>
+  {% endif %}
+  {% endfor %}
+</div>
+
+<style>
+  .test {
+    background-color: #ffcccc;
+    padding: 4px 8px;
+    border-radius: 4px;
+    margin-right: 4px;
+    cursor: pointer;
+  }
+</style>

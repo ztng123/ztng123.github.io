@@ -4,7 +4,7 @@ url:                 https://ztng123.github.io
 baseurl:             ''
 paginate:            5
 permalink:           pretty
-
+social_email: dpwl991102@gmail.com
 
 # Gems
 plugins:
