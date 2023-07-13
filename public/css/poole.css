@@ -34,21 +34,24 @@
  *
  * Update the foundational and global aspects of the page.
  */
+@import url('https://cdn.jsdelivr.net/font-iropke-batang/1.2/font-iropke-batang.css');
 
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  font-family: 'Iropke Batang';
 }
 
 html,
 body {
   margin: 0;
   padding: 0;
+  font-family: 'Iropke Batang';
 }
 
 html {
-  font-family: 'Cafe24SsurroundAir', 'SUITE-Regular', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Iropke Batang', 'Cafe24SsurroundAir', 'SUITE-Regular', "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 1.5;
 }
@@ -56,6 +59,7 @@ html {
 @media (min-width: 38em) {
   html {
     font-size: 20px;
+    font-family: 'Iropke Batang';
   }
 }
 
@@ -64,12 +68,14 @@ body {
   background-color: #fff;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
+  font-family: 'Iropke Batang';
 }
 
 /* No `:visited` state is required by default (browsers will use `a`) */
 a {
   color: #268bd2;
   text-decoration: none;
+  font-family: 'Iropke Batang';
 }
 
 a strong {
@@ -80,6 +86,7 @@ a strong {
 a:hover,
 a:focus {
   text-decoration: underline;
+  font-family: 'Iropke Batang';
 }
 
 /* Headings */
@@ -94,20 +101,24 @@ h6 {
   line-height: 1.25;
   color: #313131;
   text-rendering: optimizeLegibility;
+  font-family: 'Iropke Batang';
 }
 
 h1 {
   font-size: 2rem;
+  font-family: 'Iropke Batang';
 }
 
 h2 {
   margin-top: 1rem;
   font-size: 1.5rem;
+  font-family: 'Iropke Batang';
 }
 
 h3 {
   margin-top: 1.5rem;
   font-size: 1.25rem;
+  font-family: 'Iropke Batang';
 }
 
 h4,
@@ -121,6 +132,7 @@ h6 {
 p {
   margin-top: 0;
   margin-bottom: 1rem;
+  font-family: 'Iropke Batang';
 }
 
 strong {
@@ -151,6 +163,7 @@ hr {
   border: 0;
   border-top: 1px solid #eee;
   border-bottom: 1px solid #fff;
+  font-family: 'Iropke Batang';
 }
 
 abbr {
@@ -158,17 +171,20 @@ abbr {
   font-weight: bold;
   color: #555;
   text-transform: uppercase;
+  font-family: 'Iropke Batang';
+
 }
 
 abbr[title] {
   cursor: help;
   border-bottom: 1px dotted #e5e5e5;
+  font-family: 'Iropke Batang';
 }
 
 /* Code */
 code,
 pre {
-  font-family: 'Cafe24SsurroundAir', 'SUITE-Regular', Menlo, Monaco, "Courier New", monospace, 'SUITE-Regular';
+  font-family: 'Iropke Batang', 'Cafe24SsurroundAir', 'SUITE-Regular', Menlo, Monaco, "Courier New", monospace, 'SUITE-Regular';
 }
 
 code {
@@ -212,7 +228,7 @@ pre code {
 
 /* Gist via GitHub Pages */
 .gist .gist-file {
-  font-family: 'Cafe24SsurroundAir', 'SUITE-Regular', Menlo, Monaco, "Courier New", monospace !important;
+  font-family: 'Iropke Batang', 'Cafe24SsurroundAir', 'SUITE-Regular', Menlo, Monaco, "Courier New", monospace !important;
 }
 
 .gist .markdown-body {
@@ -242,6 +258,7 @@ blockquote {
   margin: .8rem 0;
   color: #7a7a7a;
   border-left: .25rem solid #e5e5e5;
+  font-family: 'Iropke Batang';
 }
 
 blockquote p:last-child {
@@ -268,12 +285,14 @@ table {
   width: 100%;
   border: 1px solid #e5e5e5;
   border-collapse: collapse;
+  font-family: 'Iropke Batang';
 }
 
 td,
 th {
   padding: .25rem .5rem;
   border: 1px solid #e5e5e5;
+  font-family: 'Iropke Batang';
 }
 
 tbody tr:nth-child(odd) td,
@@ -321,6 +340,7 @@ tbody tr:nth-child(odd) th {
   padding-right: 1rem;
   margin-left: auto;
   margin-right: auto;
+  font-family: 'Iropke Batang';
 }
 
 
@@ -334,12 +354,14 @@ tbody tr:nth-child(odd) th {
   padding-top: 1rem;
   padding-bottom: 1rem;
   margin-bottom: 3rem;
+  font-family: 'Iropke Batang';
 }
 
 .masthead-title {
   margin-top: 0;
   margin-bottom: 0;
   color: #505050;
+  font-family: 'Iropke Batang';
 }
 
 .masthead-title a {
@@ -351,6 +373,7 @@ tbody tr:nth-child(odd) th {
   font-weight: 400;
   color: #c0c0c0;
   letter-spacing: 0;
+  font-family: 'Iropke Batang';
 }
 
 
@@ -364,6 +387,7 @@ tbody tr:nth-child(odd) th {
 .page,
 .post {
   margin-bottom: 4em;
+  font-family: 'Iropke Batang';
 }
 
 /* Blog post or page title */
@@ -371,11 +395,13 @@ tbody tr:nth-child(odd) th {
 .post-title,
 .post-title a {
   color: #303030;
+  font-family: 'Iropke Batang';
 }
 
 .page-title,
 .post-title {
   margin-top: 0;
+  font-family: 'Iropke Batang';
 }
 
 /* Meta data line below post title */
@@ -384,6 +410,7 @@ tbody tr:nth-child(odd) th {
   margin-top: -.5rem;
   margin-bottom: 1rem;
   color: #9a9a9a;
+  font-family: 'Iropke Batang';
 }
 
 /* Related posts */
@@ -391,6 +418,7 @@ tbody tr:nth-child(odd) th {
   padding-top: 2rem;
   padding-bottom: 2rem;
   border-top: 1px solid #eee;
+  font-family: 'Iropke Batang';
 }
 
 .related-posts {
@@ -429,7 +457,7 @@ tbody tr:nth-child(odd) th {
   /* clearfix */
   margin-left: -1rem;
   margin-right: -1rem;
-  font-family: 'Cafe24SsurroundAir', 'SUITE-Regular', "PT Sans", Helvetica, Arial, sans-serif;
+  font-family: 'Iropke Batang', 'Cafe24SsurroundAir', 'SUITE-Regular', "PT Sans", Helvetica, Arial, sans-serif;
   color: #ccc;
   text-align: center;
 }
@@ -453,6 +481,7 @@ a.pagination-item:hover {
 @media (min-width: 30em) {
   .pagination {
     margin: 3rem 0;
+    font-family: 'Iropke Batang';
   }
 
   .pagination-item {
