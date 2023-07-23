@@ -1,8 +1,8 @@
-test: Test
+git : git
 
-test2: Test2
+db : DB
 
-github: github
+mysql: MySQL
 
 codingtest: CodingTest
 
