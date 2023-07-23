@@ -1,8 +1,8 @@
 git : git
 
-db : DB
+DB : DB
 
-mysql: MySQL
+MySQL: MySQL
 
 codingtest: CodingTest
 
