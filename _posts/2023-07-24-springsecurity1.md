@@ -298,7 +298,7 @@ Spring MVC의 설정과 DispatcherServlet을 초기화 및 설정해 MVC 패턴�
 
 &nbsp;
 
-> DispatcherServlet :  클라이언트로부터 들어오는 모든 요청을 처리하고 해당 요청에 대해 적절한 컨트롤러로 전달하는 중요한 컴포넌트
+> `DispatcherServlet` :  클라이언트로부터 들어오는 모든 요청을 처리하고 해당 요청에 대해 적절한 컨트롤러로 전달하는 중요한 컴포넌트
 
 &nbsp;
 
@@ -345,7 +345,7 @@ AbstractAnnotationConfigDispatcherServletInitializer 클래스는 Spring MVC 웹
 ```
 
 null을 반환하고 있으므로 Root Application Context를 설정하지 않는 것을 의미
->Root Application Context: 보통 데이터베이스 연결, 서비스, 보안 등의 빈들을 정의하는 데 사용
+>`Root Application Context`: 보통 데이터베이스 연결, 서비스, 보안 등의 빈들을 정의하는 데 사용
 
 &nbsp;
 
@@ -359,7 +359,7 @@ null을 반환하고 있으므로 Root Application Context를 설정하지 않�
 ```
 
 ApplicationConfiguration.class를 반환하고 있으므로 ApplicationConfiguration 클래스에 정의된 빈들이 Servlet Application Context에 등록됨
->Servlet Application Context: 주로 컨트롤러와 뷰 리졸버 등과 같이 웹 계층 관련 빈들을 정의하는 데 사용
+>`Servlet Application Context`: 주로 컨트롤러와 뷰 리졸버 등과 같이 웹 계층 관련 빈들을 정의하는 데 사용
 
 &nbsp;
 
@@ -386,7 +386,7 @@ ApplicationConfiguration.class를 반환하고 있으므로 ApplicationConfigura
 ```
 
 HiddenHttpMethodFilter를 반환하고 있으므로 HiddenHttpMethodFilter가 DispatcherServlet 앞에서 작동
->HiddenHttpMethodFilter: HTTP POST 메서드를 사용하여 DELETE, PUT, PATCH와 같은 추가 HTTP 메서드를 시뮬레이션하는 데 사용
+>`HiddenHttpMethodFilter`: HTTP POST 메서드를 사용하여 DELETE, PUT, PATCH와 같은 추가 HTTP 메서드를 시뮬레이션하는 데 사용
 
 &nbsp;
 

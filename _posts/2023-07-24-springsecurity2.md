@@ -1,6 +1,6 @@
 ---
 layout: post
-title: ⚙️ Spring Security 설정
+title: ⚙️ Spring Security 요청 권한 설정
 tags : [spring]
 ---
 
