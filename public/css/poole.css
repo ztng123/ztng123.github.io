@@ -218,6 +218,7 @@ pre code {
 
 /* Pygments via Jekyll */
 .highlight {
+  background-color: #999;
   margin-bottom: 1rem;
   border-radius: 4px;
 }
@@ -256,7 +257,7 @@ pre code {
 blockquote {
   padding: .5rem 1rem;
   margin: .8rem 0;
-  color: #5a5a5a;
+  color: #5b5b5b;
   border-left: .25rem solid #ffcccc;
   font-family: 'Iropke Batang';
 }
