@@ -64,7 +64,7 @@ html {
 }
 
 body {
-  color: #acabab;
+  color: #585858;
   background-color: #fff;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
@@ -169,7 +169,7 @@ hr {
 abbr {
   font-size: 85%;
   font-weight: bold;
-  color: #555;
+  color: #ababab;
   text-transform: uppercase;
   font-family: 'Iropke Batang';
 
@@ -218,7 +218,6 @@ pre code {
 
 /* Pygments via Jekyll */
 .highlight {
-  background-color: #999;
   margin-bottom: 1rem;
   border-radius: 4px;
 }
