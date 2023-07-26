@@ -218,7 +218,7 @@ pre code {
 
 /* Pygments via Jekyll */
 .highlight {
-  background-color: #e8e8e8;
+  background-color: #f0f0f0;
   margin-bottom: 1rem;
   border-radius: 4px;
 }
