@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 🗝️ Spring Security 비밀번호
-tags : [spring]
+tags : [spring,MySQL]
 ---
 
 
