@@ -160,9 +160,9 @@ Query OK, 0 rows affected (0.04 sec)
 
 ```properties
 spring.datasource.driver-class-name= com.mysql.cj.jdbc.Driver
-spring.datasource.url=jdbc:mysql://localhost:3306/jdbctest?characterEncoding=UTF-8&serverTimezone=Asia/Seoul
-spring.datasource.username=root
-spring.datasource.password=12345678
+spring.datasource.url=jdbc:mysql://localhost:3306/[DB이름]?characterEncoding=UTF-8&serverTimezone=Asia/Seoul
+spring.datasource.username=[유저이름]
+spring.datasource.password=[비밀번호]
 ```
 
 
@@ -176,7 +176,7 @@ spring.datasource.password=12345678
 &nbsp;
 
 ```Java
-dataSource.setUrl("jdbc:mysql://localhost:[포트번호]/[name]?characterEncoding=UTF-8&serverTimezone=Asia/Seoul");
+dataSource.setUrl("jdbc:mysql://localhost:[포트번호]/[DB이름]?characterEncoding=UTF-8&serverTimezone=Asia/Seoul");
 ```
 
 포트번호 확인하고 name에 자신의 데이터베이스 이름으로 수정
@@ -792,7 +792,6 @@ public class UserController {
 
 &nbsp;
 
-<img width="987" alt="스크린샷 2023-08-02 오후 9 42 17" src="https://github.com/codingspecialist/-Springboot-Security-OAuth2.0-V3/assets/53010592/6a28eef4-ab70-417e-a32e-fc802b685f60">
 
 
 &nbsp;
