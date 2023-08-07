@@ -1,6 +1,6 @@
-git : git
+git: git
 
-DB : DB
+DB: DB
 
 MySQL: MySQL
 
@@ -9,3 +9,5 @@ codingtest: CodingTest
 spring: Spring
 
 etc: etc
+
+google: Google
