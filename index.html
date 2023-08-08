@@ -5,24 +5,21 @@ title: Home
 
 <div class="tag-container">
   {% for tag in site.data.tags %}
-  <span class="tag" data-tag="{{ tag }}">
-    {{ site.data.format[tag] }}
-  </span>
+  <span class="tag" data-tag="{{ tag }}"> {{ site.data.format[tag] }} </span>
   {% endfor %}
 </div>
 
-<br><br><br>
+<br /><br /><br />
 
 <div class="posts">
-  {% if page.tag %}
-  {% assign filtered_posts = site.posts | where_exp: "post", "post.tags contains page.tag" %}
-  {% for post in filtered_posts %}
-  <div class="post-wrapper {% if post.tags %}{% for tag in post.tags %}data-{{ tag }} {% endfor %}{% endif %}">
+  {% if page.tag %} {% assign filtered_posts = site.posts | where_exp: "post",
+  "post.tags contains page.tag" %} {% for post in filtered_posts %}
+  <div
+    class="post-wrapper {% if post.tags %}{% for tag in post.tags %}data-{{ tag }} {% endfor %}{% endif %}"
+  >
     <div class="post">
       <h1 class="post-title">
-        <a href="{{ post.url | absolute_url }}">
-          {{ post.title }}
-        </a>
+        <a href="{{ post.url | absolute_url }}"> {{ post.title }} </a>
       </h1>
 
       <span class="post-date">{{ post.date | date_to_string }}</span>
@@ -34,18 +31,18 @@ title: Home
       </span>
       {% endif %}
 
-      <div class="post-content">{{ post.content | strip_html | truncatewords: 15 }}</div>
+      <div class="post-content">
+        {{ post.content | strip_html | truncatewords: 15 }}
+      </div>
     </div>
   </div>
-  {% endfor %}
-  {% else %}
-  {% for post in site.posts %}
-  <div class="post-wrapper {% if post.tags %}{% for tag in post.tags %}data-{{ tag }} {% endfor %}{% endif %}">
+  {% endfor %} {% else %} {% for post in site.posts %}
+  <div
+    class="post-wrapper {% if post.tags %}{% for tag in post.tags %}data-{{ tag }} {% endfor %}{% endif %}"
+  >
     <div class="post">
       <h1 class="post-title">
-        <a href="{{ post.url | absolute_url }}">
-          {{ post.title }}
-        </a>
+        <a href="{{ post.url | absolute_url }}"> {{ post.title }} </a>
       </h1>
 
       <span class="post-date">{{ post.date | date_to_string }}</span>
@@ -57,26 +54,32 @@ title: Home
       </span>
       {% endif %}
 
-      <div class="post-content">{{ post.content | strip_html | truncatewords: 15 }}</div>
+      <div class="post-content">
+        {{ post.content | strip_html | truncatewords: 15 }}
+      </div>
     </div>
   </div>
-  {% endfor %}
-  {% endif %}
+  {% endfor %} {% endif %}
 </div>
 
 <div class="pagination">
   {% if paginator.next_page %}
-  <a class="pagination-item older" href="{{ paginator.next_page_path | absolute_url }}">Older</a>
+  <a
+    class="pagination-item older"
+    href="{{ paginator.next_page_path | absolute_url }}"
+    >Older</a
+  >
   {% else %}
   <span class="pagination-item older">Older</span>
-  {% endif %}
-  {% if paginator.previous_page %}
-  {% if paginator.page == 2 %}
+  {% endif %} {% if paginator.previous_page %} {% if paginator.page == 2 %}
   <a class="pagination-item newer" href="{{ '/' | absolute_url }}">Newer</a>
   {% else %}
-  <a class="pagination-item newer" href="{{ paginator.previous_page_path | absolute_url }}">Newer</a>
-  {% endif %}
-  {% else %}
+  <a
+    class="pagination-item newer"
+    href="{{ paginator.previous_page_path | absolute_url }}"
+    >Newer</a
+  >
+  {% endif %} {% else %}
   <span class="pagination-item newer">Newer</span>
   {% endif %}
 </div>
@@ -87,13 +90,17 @@ title: Home
     $("[data-tag]").click(function (e) {
       var currentTag = $(this).data("tag");
       filterByTagName(currentTag);
-      $("[data-tag='" + currentTag + "']").addClass('selected');
+      $("[data-tag='" + currentTag + "']").addClass("selected");
     });
 
     function filterByTagName(tagName) {
-      $('.post-wrapper').removeClass('hidden');
-      $('.post-wrapper').not('.data-' + tagName).addClass('hidden');
-      $('.tag').not('[data-tag="' + tagName + '"]').removeClass('selected');
+      $(".post-wrapper").removeClass("hidden");
+      $(".post-wrapper")
+        .not(".data-" + tagName)
+        .addClass("hidden");
+      $(".tag")
+        .not('[data-tag="' + tagName + '"]')
+        .removeClass("selected");
     }
   });
 </script>
@@ -102,7 +109,9 @@ title: Home
   .hidden {
     display: none;
   }
-
+  .post-title {
+    font-size: 30px;
+  }
   .tag-container {
     text-align: center;
   }
