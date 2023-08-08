@@ -222,6 +222,7 @@ pre code {
 
 .highlight pre {
   margin-bottom: 0;
+  background-color: #ebebeb;
 }
 
 /* Gist via GitHub Pages */
