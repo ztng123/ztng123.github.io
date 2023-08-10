@@ -14,7 +14,7 @@
   color: #555;
 } /* Operator */
 .highlight .cm {
-  color: #09f;
+  color: rgb(124, 166, 133);
   font-style: italic;
 } /* Comment.Multiline */
 .highlight .cp {
