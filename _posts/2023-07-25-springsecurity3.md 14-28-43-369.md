@@ -1,9 +1,8 @@
 ---
 layout: post
 title: 🗝️ Spring Security 비밀번호
-tags : [spring,MySQL]
+tags: [spring, MySQL]
 ---
-
 
 &nbsp;
 
@@ -54,7 +53,7 @@ build.gradle에 의존성 추가
 
 &nbsp;
 
-``` gradle
+```gradle
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.springframework.boot:spring-boot-starter-jdbc'
@@ -92,8 +91,6 @@ implementation 'mysql:mysql-connector-java'
 
 &nbsp;
 
-
-
 #### 데이터베이스 스키마 생성
 
 &nbsp;
@@ -104,6 +101,7 @@ implementation 'mysql:mysql-connector-java'
 ```sql
 mysql> CREATE DATABASE jdbc;
 ```
+
 &nbsp;
 
 &nbsp;
@@ -115,6 +113,7 @@ mysql> CREATE DATABASE jdbc;
 ```sql
 mysql> USE jdbc;
 ```
+
 &nbsp;
 
 &nbsp;
@@ -144,11 +143,9 @@ Query OK, 0 rows affected (0.04 sec)
 
 `CREATE UNIQUE INDEX` ix_auth_username on authorities (username,authority): 'username'과 'authority' 열의 조합을 고유하게 만들어 중복 데이터를 방지
 
-
 &nbsp;
 
 &nbsp;
-
 
 #### DataSource
 
@@ -165,11 +162,9 @@ spring.datasource.username=[유저이름]
 spring.datasource.password=[비밀번호]
 ```
 
-
 &nbsp;
 
 &nbsp;
-
 
 📌 데이터베이스 URL 설정
 
@@ -194,10 +189,10 @@ mysql> SHOW VARIABLES LIKE 'port';
 +---------------+-------+
 1 row in set (0.02 sec)
 ```
-&nbsp;
 
 &nbsp;
 
+&nbsp;
 
 📌 사용자 설정
 
@@ -265,6 +260,7 @@ mysql> SELECT * FROM authorities;
 | user     | ROLE_USER |
 +----------+-----------+
 ```
+
 &nbsp;
 
 &nbsp;
@@ -272,7 +268,6 @@ mysql> SELECT * FROM authorities;
 ## 🔍 JDBC 예제
 
 &nbsp;
-
 
 #### 👤 회원가입
 
@@ -344,7 +339,7 @@ public class User implements UserDetails {
     @Builder
     public User(String username, String password, boolean enabled) {
         this.username = username;
-        this.password = password; 
+        this.password = password;
         this.enabled = true;
 
     }
@@ -428,8 +423,8 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
 &nbsp;
 
->`extends JpaRepository<'Entity 클래스', 'Entity 아이디타입 >`:save(T entity),findById(ID id),findAll(),delete(T entity) 메서드 제공
-필요한 쿼리 메서드를 선언하면 Spring Data JPA가 해당 메서드를 자동으로 구현
+> `extends JpaRepository<'Entity 클래스', 'Entity 아이디타입 >`:save(T entity),findById(ID id),findAll(),delete(T entity) 메서드 제공
+> 필요한 쿼리 메서드를 선언하면 Spring Data JPA가 해당 메서드를 자동으로 구현
 
 &nbsp;
 
@@ -439,20 +434,20 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
 &nbsp;
 
- 비밀번호를 암호화할 때 사용
+비밀번호를 암호화할 때 사용
 
 &nbsp;
 
- ```Java
- @Configuration
+```Java
+@Configuration
 public class AppConfig {
 
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
+   @Bean
+   public PasswordEncoder passwordEncoder() {
+       return new BCryptPasswordEncoder();
+   }
 }
- ```
+```
 
 &nbsp;
 
@@ -502,10 +497,10 @@ public class UserService {
 }
 ```
 
-DTO를 매개변수로 받아, 사용자의 username과 password를 가져오고 password는 passwordEncoder를 사용해 암호화된 형태로 변환 
+DTO를 매개변수로 받아, 사용자의 username과 password를 가져오고 password는 passwordEncoder를 사용해 암호화된 형태로 변환
 이후 User 객체를 생성하고, 이 객체를 userRepository.save()를 통해 데이터베이스에 저장
 
->`@Transactional` 은 이 메서드를 하나의 트랜잭션으로 처리하도록 지시해 이 메서드 내에서 일어나는 여러 데이터베이스 작업들이 모두 성공적으로 완료되거나, 실패 시 모두 롤백되도록 보장
+> `@Transactional` 은 이 메서드를 하나의 트랜잭션으로 처리하도록 지시해 이 메서드 내에서 일어나는 여러 데이터베이스 작업들이 모두 성공적으로 완료되거나, 실패 시 모두 롤백되도록 보장
 
 &nbsp;
 
@@ -531,7 +526,7 @@ public class UserController {
 
     @PostMapping("/joinIt")
     public String join(@ModelAttribute DTO dto) {
-        userService.registerUser(dto.getUsername(), dto.getPassword());
+        userService.save(dto);
         return "redirect:/login";
     }
 
@@ -548,8 +543,8 @@ public class UserController {
     @GetMapping("/login")
     public String login(){
         return "login";
-    }  
-    
+    }
+
 }
 
 ```
@@ -560,7 +555,6 @@ public class UserController {
 &nbsp;
 
 &nbsp;
-
 
 📌 WebSecurityConfig
 
@@ -592,12 +586,12 @@ public class WebSecurityConfig {
                 .logout((logout) -> logout
                         .logoutSuccessUrl("/login"))
                 .csrf(AbstractHttpConfigurer::disable) //CSRF 공격 방어 기능을 비활성화
-                .build(); 
+                .build();
     }
 }
 ```
 
->`SecurityFilterChain` : 인증 및 권한 검사와 같은 보안 관련 처리를 수행
+> `SecurityFilterChain` : 인증 및 권한 검사와 같은 보안 관련 처리를 수행
 
 &nbsp;
 
@@ -650,12 +644,12 @@ public class UserDetailService implements UserDetailsService {
 
 &nbsp;
 
->`loadUserByUsername(String username)` :UserDetailsService 인터페이스의 메서드
-입력받은 username에 해당하는 사용자 정보를 데이터베이스에서 조회하고, 이 정보를 UserDetails 형태로반환
+> `loadUserByUsername(String username)` :UserDetailsService 인터페이스의 메서드
+> 입력받은 username에 해당하는 사용자 정보를 데이터베이스에서 조회하고, 이 정보를 UserDetails 형태로반환
 
 &nbsp;
 
->`UserDetails` :사용자 이름, 비밀번호, 권한 등의 사용자 세부정보
+> `UserDetails` :사용자 이름, 비밀번호, 권한 등의 사용자 세부정보
 
 &nbsp;
 
@@ -697,13 +691,12 @@ public class WebSecurityConfig {
 
 &nbsp;
 
->`DaoAuthenticationProvider` : Spring Security에서 제공하는 인증 제공자
-사용자 자격 증명 (사용자 이름,비밀번호 등)을 검증하는 역할
+> `DaoAuthenticationProvider` : Spring Security에서 제공하는 인증 제공자
+> 사용자 자격 증명 (사용자 이름,비밀번호 등)을 검증하는 역할
 
 &nbsp;
 
 &nbsp;
-
 
 #### ✏️ 비밀번호 수정
 
@@ -792,8 +785,6 @@ public class UserController {
 
 &nbsp;
 
-
-
 &nbsp;
 
 📌 UserService
@@ -840,9 +831,9 @@ public class UserController {
         if (principal instanceof UserDetails) {
             String username = ((UserDetails) principal).getUsername();
             userService.deleteUserByUsername(username);
-            request.getSession().invalidate(); 
+            request.getSession().invalidate();
         }
-        return "redirect:/login"; 
+        return "redirect:/login";
     }
 
 
@@ -851,8 +842,141 @@ public class UserController {
 
 &nbsp;
 
->`request.getSession().invalidate()` : 현재 세션을 무효화
-삭제된 사용자가 로그인 상태를 유지하지 못하도록 하기 위해서 무효화 필요
+> `request.getSession().invalidate()` : 현재 세션을 무효화
+> 삭제된 사용자가 로그인 상태를 유지하지 못하도록 하기 위해서 무효화 필요
+
+&nbsp;
+
+&nbsp;
+
+#### ❗️ 로그인 ExceptionHandler
+
+&nbsp;
+
+📌 AuthenticationFailureHandler
+
+&nbsp;
+
+```java
+public class UserAuthenticationFailureHandler implements AuthenticationFailureHandler {
+
+    @Override
+    public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response,
+                                        AuthenticationException exception) throws IOException, ServletException {
+
+        response.sendRedirect("/login?error=" + exception.getMessage());
+    }
+```
+
+&nbsp;
+
+사용자를 로그인 페이지로 다시 리다이렉트하며 실패 이유 표시
+
+&nbsp;
+
+> `AuthenticationFailureHandler` : SpringSecurity에서 로그인 인증 실패 시 사용되는 핸들러
+
+&nbsp;
+
+&nbsp;
+
+📌 WebSecurityConfig
+
+```java
+.formLogin((form) -> form
+                        .loginPage("/login")
+                        .failureHandler(UserAuthenticationFailureHandler)
+                        .permitAll())
+```
+
+&nbsp;
+
+로그인 인증이 실패했을 때 호출될 핸들러 설정
+
+&nbsp;
+
+&nbsp;
+
+<img width="480" alt="스크린샷 2023-08-10 오후 5 41 36" src="https://github.com/ztng123/calendar/assets/53010592/8fad91b2-081d-49dc-8767-958dfa7f3647">
+
+&nbsp;
+
+&nbsp;
+
+#### ❗️ 회원가입 ExceptionHandler
+
+&nbsp;
+
+📌 UserService
+
+&nbsp;
+
+```java
+public long save(DTO dto) {
+        if(userRepository.existsByUsername(dto.getUsername())){
+            throw new UserAlreadyExistsException("username already exists");
+        }
+}
+```
+
+&nbsp;
+
+사용자 이름이 이미 존재하는지 체크하고 이미 존재하면 UserAlreadyExistsException 예외가 발생
+
+&nbsp;
+
+&nbsp;
+
+📌 UserAlreadyExistsException
+
+&nbsp;
+
+```java
+public class UserAlreadyExistsException extends RuntimeException {
+    public UserAlreadyExistsException(String message) {
+        super(message);
+    }
+}
+```
+
+&nbsp;
+
+예외가 발생하면 메세지가 출력
+
+&nbsp;
+
+> `RuntimeException` : unchecked exception의 주요 예로, 컴파일러가 이를 명시적으로 처리하도록 요구하지 않음
+> Exception을 직접 상속받는 경우는 checked exception으로 throws를 사용하여 예외 선언 해야함
+
+&nbsp;
+
+&nbsp;
+
+📌 UserController
+
+&nbsp;
+
+```java
+@PostMapping("/joinProc")
+    public String join(DTO dto) {
+        try {
+            userService.save(dto);
+        } catch (UserAlreadyExistsException e) {
+            return "redirect:/join?error=User already exists!";
+        }
+        return "redirect:/login";
+    }
+```
+
+&nbsp;
+
+UserAlreadyExistsException이 발생하면 "/join?error=User already exists!"로 리다이렉트
+
+&nbsp;
+
+&nbsp;
+
+<img width="502" alt="스크린샷 2023-08-10 오후 5 33 08" src="https://github.com/ztng123/calendar/assets/53010592/18d4a391-b01d-4949-9079-30c6c4136205">
 
 &nbsp;
 
@@ -865,4 +989,3 @@ public class UserController {
 &nbsp;
 
 &nbsp;
-
