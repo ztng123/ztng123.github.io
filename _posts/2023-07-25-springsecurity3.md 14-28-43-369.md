@@ -170,7 +170,7 @@ spring.datasource.password=[비밀번호]
 
 &nbsp;
 
-```Java
+```java
 dataSource.setUrl("jdbc:mysql://localhost:[포트번호]/[DB이름]?characterEncoding=UTF-8&serverTimezone=Asia/Seoul");
 ```
 
@@ -198,7 +198,7 @@ mysql> SHOW VARIABLES LIKE 'port';
 
 &nbsp;
 
-```Java
+```java
 dataSource.setUsername("username");
 dataSource.setPassword("password");
 ```
@@ -213,7 +213,7 @@ dataSource.setPassword("password");
 
 &nbsp;
 
-```Java
+```java
 @Bean
     UserDetailsManager users(DataSource dataSource) {
         UserDetails user = User.builder()
@@ -289,7 +289,7 @@ mysql> SELECT * FROM authorities;
 
 &nbsp;
 
-```Java
+```java
 @Getter
 @Setter
 public class DTO {
@@ -312,7 +312,7 @@ UserDetails로 사용자 인증 정보의 관리
 
 &nbsp;
 
-```Java
+```java
 @Entity
 @Data
 @Getter
@@ -413,7 +413,7 @@ User 엔티티를 조회, 저장, 삭제하는데 필요한 메서드들을 제�
 
 &nbsp;
 
-```Java
+```java
 public interface UserRepository extends JpaRepository<User, Long> {
     Optional<User> findByUsername(String username);
 
@@ -438,7 +438,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
 &nbsp;
 
-```Java
+```java
 @Configuration
 public class AppConfig {
 
@@ -465,7 +465,7 @@ Service/Controller에서 @Autowired 등을 통해 주입해 사용
 
 &nbsp;
 
-```Java
+```java
 
 @Service
 
@@ -514,7 +514,7 @@ DTO를 매개변수로 받아, 사용자의 username과 password를 가져오고
 
 &nbsp;
 
-```Java
+```java
 @Controller
 public class UserController {
 
@@ -564,7 +564,7 @@ public class UserController {
 
 &nbsp;
 
-```Java
+```java
 
 @RequiredArgsConstructor
 @Configuration
@@ -625,7 +625,7 @@ public class WebSecurityConfig {
 
 &nbsp;
 
-```Java
+```java
 @RequiredArgsConstructor
 @Service
 public class UserDetailService implements UserDetailsService {
@@ -663,7 +663,7 @@ public class UserDetailService implements UserDetailsService {
 
 &nbsp;
 
-```Java
+```java
 
 @RequiredArgsConstructor
 @Configuration
@@ -739,7 +739,7 @@ public class UserService {
 
 &nbsp;
 
-```Java
+```java
 @Controller
 public class UserController {
 
@@ -791,7 +791,7 @@ public class UserController {
 
 &nbsp;
 
-```Java
+```java
 @Service
 public class UserService {
     // ...
@@ -812,7 +812,7 @@ public class UserService {
 
 &nbsp;
 
-```Java
+```java
 @Controller
 public class UserController {
 
