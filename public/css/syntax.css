@@ -93,7 +93,7 @@
   color: #360;
 } /* Name.Constant */
 .highlight .nd {
-  color: #99f;
+  color: rgb(108, 108, 179);
 } /* Name.Decorator */
 .highlight .ni {
   color: #999;
@@ -102,10 +102,10 @@
   color: #c00;
 } /* Name.Exception */
 .highlight .nf {
-  color: rgb(148, 55, 171);
+  color: rgb(139, 80, 154);
 } /* Name.Function */
 .highlight .nl {
-  color: #99f;
+  color: rgb(115, 115, 190);
 } /* Name.Label */
 .highlight .nn {
   color: #0cf;
