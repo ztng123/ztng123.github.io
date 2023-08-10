@@ -80,7 +80,7 @@
   color: #f60;
 } /* Literal.Number */
 .highlight .s {
-  color: #c16065;
+  color: #414b74;
 } /* Literal.String */
 .highlight .na {
   color: #4f9fcf;
@@ -89,7 +89,7 @@
   color: #366;
 } /* Name.Builtin */
 .highlight .nc {
-  color: rgb(53, 139, 122);
+  color: rgb(154, 96, 141);
 } /* Name.Class */
 .highlight .no {
   color: #360;
@@ -156,7 +156,7 @@
   color: #c30;
 } /* Literal.String.Heredoc */
 .highlight .si {
-  color: #a00;
+  color: rgb(48, 146, 90);
 } /* Literal.String.Interpol */
 .highlight .sx {
   color: #c30;
